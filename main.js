@@ -54,39 +54,7 @@ const body = document.getElementById("body");
 
 const searchBar = document.getElementById("searchBar");
 searchBar.placeholder = `Try Searching "${randomSearchPrompt[Math.floor(Math.random(0, randomSearchPrompt.length - 1) * 13)]}"`;
-searchBar.addEventListener("input", (event) => {
-    let panels = body.children;
-    if (event.target.value == "") {
-        for (let i = 0; i < panels.length; i++) {
-            panels[i].style.removeProperty("display")
-        }
-    } else {
-        const search = event.target.value.split(" ");
-        for (let i = 0; i < panels.length; i++) {
-            /*if (panels[i].style.display == "none") {
-                panels[i].style.removeProperty("display")
-            } else {}*/
-                panels[i].style.display = "none";
-        }
-        for (let i = 0; i < panels.length; i++) {
-            let panelSplit = panels[i].children[1].textContent.split(" ");
-            let searchTotal = 0;
-            for (let j = 0; j < search.length; j++) {
-                console.log(panelSplit.includes(search[j]))
-                console.log(search[j])
-                console.log(panelSplit)
-                for (let k = 0; k < panelSplit.length; k++) {
-                    if (panelSplit[k].toLowerCase().includes(search[j].toLowerCase())) {
-                        searchTotal++;
-                    }
-                }
-            }
-            if (searchTotal == search.length) {
-                panels[i].style.removeProperty("display")
-            }
-        }
-    }
-})
+searchBar.addEventListener("input", search)
 
 const tagsBar = document.getElementById("tagsBar");
 const dropdown = document.getElementById("dropdown");
@@ -105,10 +73,15 @@ tag.className = "tagButton";
 while (enabledTags.length > 0) {
     tag.textContent = enabledTags[enabledTags.length - 1];
     enabledTags.pop();
-    tagsBar.appendChild(tag.cloneNode(true))
+    tagsBar.appendChild(tag.cloneNode(true));
     tagsBar.children[tagsBar.children.length - 1].addEventListener("click", (event) => {
-        console.log(event.target.textContent);
-        event.target.classList.toggle("enabled")
+        event.target.classList.toggle("enabled");
+        if (enabledTags.includes(event.target.textContent)) {
+            enabledTags.splice(enabledTags.indexOf(event.target.textContent), 1);
+        } else {
+            enabledTags.push(event.target.textContent);
+        }
+        search();
     })
 }
 /* </span><span class="tagButton">Tag</span> */
@@ -157,3 +130,58 @@ for (let i = 0; i < Object.keys(projects).length; i++) {
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
 </div>
 */
+
+function search() {
+    let panels = body.children;
+    if (searchBar.value == "") {
+        for (let i = 0; i < panels.length; i++) {
+            panels[i].style.removeProperty("display");
+        }
+    } else {
+        const search = searchBar.value.split(" ");
+        for (let i = 0; i < panels.length; i++) {
+            panels[i].style.display = "none";
+        }
+        for (let i = 0; i < panels.length; i++) {
+            let panelSplit = panels[i].children[1].textContent.split(" ");
+            let searchTotal = 0;
+            for (let j = 0; j < search.length; j++) {
+                for (let k = 0; k < panelSplit.length; k++) {
+                    if (panelSplit[k].toLowerCase().includes(search[j].toLowerCase())) {
+                        searchTotal++;
+                    }
+                }
+            }
+            if (searchTotal == search.length) {
+                panels[i].style.removeProperty("display");
+            }
+        }
+    }
+    filterByTags()
+}
+
+function filterByTags() {
+    let panels = body.children;
+    if (enabledTags.length > 0) {
+        for (let i = 0; i < panels.length; i++) {
+            if (panels[i].style.display != "none") {
+                if (panels[i].hasAttribute("tag")) {
+                    let tagsAttribute = panels[i].getAttribute("tag").split(",");
+                    let tagTotal = 0;
+                    for (let j = 0; j < tagsAttribute.length; j++) {
+                        if (enabledTags.includes(tagsAttribute[j])) {
+                            tagTotal++;
+                        }
+                    }
+                    if (tagTotal != enabledTags.length) {
+                        panels[i].style.display = "none";
+                    } else {
+                        panels[i].style.removeProperty("display");
+                    }
+                } else {
+                    panels[i].style.display = "none";
+                }
+            }
+        }
+    }
+}
