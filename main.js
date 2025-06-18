@@ -43,9 +43,19 @@ const projects = {
     "GemBlaze": ["A mod that allows you to hide unwanted chat features", ["Mod", "Quality of Life", "Chat Settings", "Dev Helper", "Build Helper", "Open Source", "Wiki"], "https://modrinth.com/mod/gemblaze"]
 }
 
-const randomSearchPrompt = ["Mod", "Automation", "Build Helper", "Chat settings", "Dev Helper", "Discord Presence", "Fabric", "Forge", "Keybinds", "Library", "Plot Mod", "Quality of Life", "Scripting", "Performance", "Code templates", "Compiler", "Text Styling", "Transpiler", "Wiki", "Block Based", "Compiler", "Custom Language", "Java", "JavaScript", "Open source", "Python", "Rust", "Web assembly"]
+const randomSearchPrompt = [
+    "Mod", "Fabric", "Forge", "Automation", "Build Helper", "Chat Settings", "Dev Helper", "Discord Presence", "Keybinds", "Plot Mod", "Quality of Life/QoL", "Scripting",
 
-let enabledTags = ["Automation", "Block Based", "Build Helper", "Chat Settings", "Code templates", "Compiler", "Custom Language", "Dev Helper", "Discord Presence", "Fabric", "Forge", "Java", "JavaScript", "Keybinds", "Library", "Misc", "Mod", "Modpack", "Open Source", "Performance", "Plot Mod", "Python", "Quality of Life/QoL", "Rust", "Scripting", "Text Styling", "Transpiler", "Web assembly", "Website", "Wiki"];
+    "Modpack", "Performance",
+
+    "Website", "Text Styling", "Wiki", 
+
+    "Misc", "Library", "Open Source",
+
+    "Compiler/Transpiler", "Block Based", "Code Templates", "Custom Language", "Java", "JavaScript", "Python", "Rust", "Web Assembly/WASM"
+]
+const tagCategories = ["mod", "mod", "mod", "mod", "mod", "mod", "mod", "mod", "mod", "mod", "mod", "mod", "modpack", "modpack", "website", "website", "website", "misc", "misc", "misc", "compTrans", "compTrans", "compTrans", "compTrans", "compTrans", "compTrans", "compTrans", "compTrans", "compTrans"]
+let enabledTags = randomSearchPrompt.slice();
 
 document.addEventListener("DOMContentLoaded", (event) => {
 console.log("Hello world!");
@@ -61,18 +71,19 @@ const dropdown = document.getElementById("dropdown");
 dropdown.addEventListener("click", (event) => {
     dropdown.classList.toggle("rotate");
     dropdown.classList.toggle("normal");
-    if (tagsBar.style.height == "10.2rem") {
+    if (tagsBar.style.height == "12.3rem") {
         tagsBar.style.height = "1.9rem";
     } else {
-        tagsBar.style.height = "10.2rem"
+        tagsBar.style.height = "12.3rem"
     }
 })
 
 const tag = document.createElement("span");
 tag.className = "tagButton";
-while (enabledTags.length > 0) {
-    tag.textContent = enabledTags[enabledTags.length - 1];
-    enabledTags.pop();
+for (let i = 0; i < randomSearchPrompt.length; i++) {
+    tag.textContent = enabledTags[0];
+    tag.classList = `tagButton ${tagCategories[i]}`
+    enabledTags.splice(0, 1);
     tagsBar.appendChild(tag.cloneNode(true));
     tagsBar.children[tagsBar.children.length - 1].addEventListener("click", (event) => {
         event.target.classList.toggle("enabled");

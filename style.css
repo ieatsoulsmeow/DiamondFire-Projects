@@ -1,3 +1,4 @@
+/* Fonts */
 @font-face {
     font-family: Geist;
     src: url(assets/fonts/GeistMono-VariableFont_wght.ttf);
@@ -12,7 +13,9 @@
     font-family: Oxygen;
     src: url(assets/fonts/OxygenMono-Regular.ttf);
 }
+/* ----------------------------- */
 
+/* Page Setup */
 * {
     margin: 0;
     padding: 0;
@@ -23,6 +26,16 @@ body {
     margin: 0;
 }
 
+#body {
+    /* Alignment */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+/* ----------------------------- */
+
+/* Top Bar */
 #banner {
     /* Alignment */
     display: flex;
@@ -41,6 +54,28 @@ body {
     color: white;
 }
 
+.shadow {
+    /* Positioning */
+    position: relative;
+    z-index: 1;
+
+    /* Spacing */
+    margin-bottom: 1%;
+}
+
+.shadow::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100%;
+    aspect-ratio: 1 / 0.2;
+    background-image: linear-gradient(180deg, #f5f5f5, #f5f5f500);
+    z-index: -1;
+    pointer-events: none;
+}
+/* ----------------------------- */
+
+/* Search & Tag Bar */
 #searchBar {
     /* Positioning */
     position: relative;
@@ -89,116 +124,119 @@ body {
     border-width: 1px;
 }
 
-#dropdown {
-    font-family: Oxygen;
-    cursor: pointer;
-    user-select: none;
-    display: inline-block;
-    transform-origin: center;
-    margin-right: 6px;
-    width:20px;
-    height:20px;
-}
+    /* Little Dropdown Ticker Thingie */
+    #dropdown {
+        font-family: Oxygen;
+        cursor: pointer;
+        user-select: none;
+        display: inline-block;
+        transform-origin: center;
+        margin: 0.1rem 0.1rem 6px -1rem;
+        width:20px;
+        height:20px;
+    }
 
-@keyframes rotate-90-cw {
-  0% {
-    transform: rotate(-90deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
+    @keyframes rotate-90-cw {
+    0% {
+        transform: rotate(-90deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+    }
 
-@keyframes rotate-90-ccw {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(-90deg);
-  }
-}
+    @keyframes rotate-90-ccw {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-90deg);
+    }
+    }
 
-.rotate {
-    animation: rotate-90-cw 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
+    .rotate {
+        animation: rotate-90-cw 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
 
-.normal {
-    animation: rotate-90-ccw 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
+    .normal {
+        animation: rotate-90-ccw 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+    /* ----------------------------- */
 
-.tagButton {
-    /* Positioning */
-    padding: 0.2rem 0.4rem 0.2rem 0.4rem;
-    margin: 0.1rem;
-    font-size: 0.8rem;
 
-    /* Text */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    /* Style */
-    cursor: pointer;
-    border-radius: 10px;
-    background-color: #606060;
-    color: #b3b3b3;
-}
+    /* Tags */    
+    .tagButton {
+        /* Positioning */
+        padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+        margin: 0.1rem;
+        font-size: 0.8rem;
 
-.tagButton:hover {
-    background-color: #818181;
-    color: #cecece;
-}
+        /* Text */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        user-select: none;
 
-.tagButton.enabled {
-    /* Positioning */
-    padding: 0.2rem 0.4rem 0.2rem 0.4rem;
-    margin: 0.1rem;
-    font-size: 0.8rem;
+        /* Style */
+        cursor: pointer;
+        border-radius: 10px;
+        background-color: #606060;
+        color: #ececec;
+    }
 
-    /* Text */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    /* Style */
-    border-radius: 10px;
-    background-color: grey;
-    color: white;
-}
+        /* Tag Colours */
+        .mod {
+            background-color: hsl(0, 50%, 38%);
+        }
 
-.tagButton.enabled:hover {
-    background-color: #747474;
-    color: #cecece;
-}
+        .modpack {
+            background-color: hsl(40, 50%, 38%);
+        }
 
-.shadow {
-    /* Positioning */
-    position: relative;
-    z-index: 1;
+        .website {
+            background-color: hsl(240, 50%, 38%);
+        }
 
-    /* Spacing */
-    margin-bottom: 1%;
-}
+        .misc {
+            background-color: #606060;
+        }
 
-.shadow::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    width: 100%;
-    aspect-ratio: 1 / 0.2;
-    background-image: linear-gradient(180deg, #f5f5f5, #f5f5f500);
-    z-index: -1;
-    pointer-events: none;
-}
+        .compTrans {
+            background-color: hsl(180, 50%, 38%);
+        }
+        /* ----------------------------- */
 
-#body {
-    /* Alignment */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
+    .tagButton:hover {
+        filter: brightness(90%);
+    }
 
+    .tagButton.enabled {
+        /* Positioning */
+        padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+        margin: 0.1rem;
+        font-size: 0.8rem;
+
+        /* Text */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        /* Style */
+        border-radius: 10px;   
+        filter: brightness(130%);
+    }
+
+    .tagButton.enabled:hover {
+        filter: brightness(120%);
+    }
+
+    .tagButton:active, .tagButton.enabled:active {
+        filter: brightness(60%);
+    }
+    /* ----------------------------- */
+/* ----------------------------- */
+
+/* Project Cards */
 .project {
     /* Alignment */
     display: flex;
