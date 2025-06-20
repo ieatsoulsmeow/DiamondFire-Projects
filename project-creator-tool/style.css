@@ -1,0 +1,32 @@
+#div {
+    text-align: center;
+    padding-top: 5%;
+}
+
+#bar {
+    padding-left: 45%;
+}
+
+#output {
+    width: 80%;
+}
+
+input {
+    color: black;
+}
+
+.tagButton.enabled {
+    /* Positioning */
+    padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+    margin: 0.1rem;
+    font-size: 0.8rem;
+
+    /* Text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Style */
+    border-radius: 10px;   
+    filter: brightness(200%);
+}

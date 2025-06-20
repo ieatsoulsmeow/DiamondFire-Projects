@@ -39,28 +39,47 @@ Misc
 >Web assembly
 */
 const projects = {
-    "DFScript": ["A mod that allows scripting on the client", ["Mod", "Automation", "Scripting", "Open Source", "Wiki", "Fabric"], "https://modrinth.com/mod/dfscript"],
-    "GemBlaze": ["A mod that allows you to hide unwanted chat features", ["Mod", "Quality of Life", "Chat Settings", "Dev Helper", "Build Helper", "Open Source", "Wiki"], "https://modrinth.com/mod/gemblaze"]
+    "DFScript": ["Scripting on the game client based on DiamondFire actions", ["Outdated/Abandoned", "Mod", "Scripting", "Fabric", "Automation", "Open Source"], "https://modrinth.com/mod/dfscript"],
+    "GemBlaze": ["Hide unwanted tags & messages, run commands automatically, and helpful tools", ["Outdated/Abandoned", "Mod", "Chat Settings", "Open Source", "Dev Helper", "Build Helper", "Quality of Life/QoL", "Fabric"], "https://modrinth.com/mod/gemblaze"],
+    "FireClient": ["Old chat style, helpful commands, and custom plot actions", ["Mod", "Fabric", "Plot Mod", "Python", "Chat Settings", "Open Source"], "https://modrinth.com/mod/fireclient"],
+    "DF Revert": ["Allows you to customise rank tags", ["Mod", "Fabric", "Stylisation", "Open Source"], "https://modrinth.com/mod/dfrevert"],
+    "Pickaxe game": ["Adds helpful features for the plot 50644 / \"Pickaxe Game\"", ["Mod", "Fabric", "Plot Mod", "Keybinds", "Chat Settings", "Open Source"], "https://modrinth.com/mod/pickaxe-mod"],
+    "Flint": ["Core library for DiamondFire mods", ["Mod", "Fabric", "Library", "Open Source"], "https://modrinth.com/mod/flint"],
+    "ModUtils": ["Adds features to help the Mods/Admins of DiamondFire", ["Mod", "Fabric", "Quality of Life/QoL", "Chat Settings", "Open Source"], "https://modrinth.com/mod/modutils"],
+    "RBTW": ["Adds helpful features for the plot 42575 / \"Riches Beneath the Waves\"", ["Mod", "Fabric", "Plot Mod", "Open Source"], "https://modrinth.com/mod/rbtw"],
+    "NBS Extensions": ["Load Note Block Studio files in DiamondFire", ["Mod", "Fabric", "Dev Helper", "Open Source"], "https://modrinth.com/mod/nbs-extensions"],
+    "HyperViewer": ["A way to view code as text similar to Python or Java", ["Outdated/Abandoned", "Mod", "Fabric", "Open Source", "Dev Helper", "Keybinds", "Scripting", "Code Templates", "Custom Language"], "https://modrinth.com/mod/firemod"],
+    "": ["", [], ""],
+    "": ["", [], ""],
+    "": ["", [], ""],
+    "": ["", [], ""],
+    "": ["", [], ""],
+    "": ["", [], ""],
+    "": ["", [], ""],
+    "": ["", [], ""]
 }
 
 const randomSearchPrompt = [
-    "Mod", "Fabric", "Forge", "Automation", "Build Helper", "Chat Settings", "Dev Helper", "Discord Presence", "Keybinds", "Plot Mod", "Quality of Life/QoL", "Scripting",
+    "Mod", "Fabric", "Forge", "Automation", "Build Helper", "Chat Settings", "Dev Helper", "Discord Presence", "Keybinds", "Plot Mod", "Quality of Life/QoL", "Scripting", "Stylisation",
 
     "Modpack", "Performance",
 
     "Website", "Text Styling", "Wiki", 
 
     "Misc", "Library", "Open Source",
+    
+    "Outdated/Abandoned",
 
     "Compiler/Transpiler", "Block Based", "Code Templates", "Custom Language", "Java", "JavaScript", "Python", "Rust", "Web Assembly/WASM"
 ]
-const tagCategories = ["mod", "mod", "mod", "mod", "mod", "mod", "mod", "mod", "mod", "mod", "mod", "mod", "modpack", "modpack", "website", "website", "website", "misc", "misc", "misc", "compTrans", "compTrans", "compTrans", "compTrans", "compTrans", "compTrans", "compTrans", "compTrans", "compTrans"]
+const tagCategories = ["mod", "mod", "mod", "mod", "mod", "mod", "mod", "mod", "mod", "mod", "mod", "mod", "mod", "modpack", "modpack", "website", "website", "website", "misc", "misc", "misc", "warning", "compTrans", "compTrans", "compTrans", "compTrans", "compTrans", "compTrans", "compTrans", "compTrans", "compTrans"]
 let enabledTags = randomSearchPrompt.slice();
 
 document.addEventListener("DOMContentLoaded", (event) => {
 console.log("Hello world!");
 
 const body = document.getElementById("body");
+body.innerHTML = "";
 
 const searchBar = document.getElementById("searchBar");
 searchBar.placeholder = `Try Searching "${randomSearchPrompt[Math.floor(Math.random(0, randomSearchPrompt.length - 1) * 13)]}"`;
@@ -126,6 +145,11 @@ for (let i = 0; i < Object.keys(projects).length; i++) {
     link.textContent = key;
     for (let j = 0; j < 3; j++) {
         tagSpan.textContent = value[1][j];
+        if (tagSpan.textContent == "Outdated/Abandoned") {
+            tagSpan.style.backgroundColor = "#f2c10d";
+        } else {
+            tagSpan.removeAttribute("style");
+        }
         tagHolder.appendChild(tagSpan.cloneNode(true));
     }
     description.textContent = value[0];

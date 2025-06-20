@@ -201,6 +201,11 @@ body {
             background-color: #606060;
         }
 
+        .warning {
+            background-color: #e6b919;
+            color: #313131;
+        }
+
         .compTrans {
             background-color: hsl(180, 50%, 38%);
         }
