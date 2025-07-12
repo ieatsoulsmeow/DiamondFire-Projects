@@ -145,7 +145,7 @@ for (let i = 0; i < Object.keys(projects).length; i++) {
     tagHolder.innerHTML = "";
 
 
-    img.src = `assets/images/${key}.png`
+    img.src = `assets/images/${key.toLowerCase()}.png`
     link.textContent = key;
     for (let j = 0; j < 3; j++) {
         tagSpan.textContent = value[1][j];
