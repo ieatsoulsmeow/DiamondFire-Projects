@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const exportField = document.getElementById("output");
     const exportButton = document.getElementById("exportButton");
     exportButton.addEventListener("click", function() {
-        exportField.value = `"${name.value}": ["${desc.value}", ["${enabledTags.toString().replaceAll(",", '", "')}"], "${link.value}"]`;
+        exportField.value = `"${name.value}": ["${desc.value.replaceAll("\"", "\\\"")}", ["${enabledTags.toString().replaceAll(",", '", "')}"], "${link.value}"]`;
 
         const reader = new FileReader();
         reader.addEventListener("load", (event) => {
@@ -38,7 +38,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const copy = document.getElementById("copy");
     copy.addEventListener("click", function() {
-        navigator.clipboard.writeText(exportField.value);
+        for (let i = 0; i < 10; i++) { //Because sometimes it doesn't copy 3:
+            navigator.clipboard.writeText(exportField.value);
+        }
         alert(`Copied "${exportField.value}" to clipboard!`)
     })
 

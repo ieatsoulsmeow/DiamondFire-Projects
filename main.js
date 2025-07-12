@@ -39,24 +39,28 @@ Misc
 >Web assembly
 */
 const projects = {
-    "DFScript": ["Scripting on the game client based on DiamondFire actions", ["Outdated/Abandoned", "Mod", "Scripting", "Fabric", "Automation", "Open Source"], "https://modrinth.com/mod/dfscript"],
-    "GemBlaze": ["Hide unwanted tags & messages, run commands automatically, and helpful tools", ["Outdated/Abandoned", "Mod", "Chat Settings", "Open Source", "Dev Helper", "Build Helper", "Quality of Life/QoL", "Fabric"], "https://modrinth.com/mod/gemblaze"],
-    "FireClient": ["Old chat style, helpful commands, and custom plot actions", ["Mod", "Fabric", "Plot Mod", "Python", "Chat Settings", "Open Source"], "https://modrinth.com/mod/fireclient"],
+    "+1 Clickering-nator++": ["Adds helpful features for the plot 42998 / \"+1 clicker\"", ["Mod", "Fabric", "Plot Mod"], "https://www.curseforge.com/minecraft/mc-mods/clicker-game-mod"],
+    "Clicker Game mod (unofficial)": ["Adds helpful features for the plot 42998 / \"+1 clicker\"", ["Mod", "Fabric", "Plot Mod"], "https://modrinth.com/mod/clicker-game-mod"],
+    "CodeClient": ["A utility client that adds helpful build and dev features", ["Mod", "Fabric", "Build Helper", "Dev Helper", "Wiki", "Quality of Life/QoL", "Keybinds", "Open Source", "Automation"], "https://modrinth.com/mod/codeclient"],
     "DF Revert": ["Allows you to customise rank tags", ["Mod", "Fabric", "Stylisation", "Open Source"], "https://modrinth.com/mod/dfrevert"],
-    "Pickaxe game": ["Adds helpful features for the plot 50644 / \"Pickaxe Game\"", ["Mod", "Fabric", "Plot Mod", "Keybinds", "Chat Settings", "Open Source"], "https://modrinth.com/mod/pickaxe-mod"],
+    "DFScript": ["Scripting on the game client based on DiamondFire actions", ["Outdated/Abandoned", "Mod", "Scripting", "Fabric", "Automation", "Open Source"], "https://modrinth.com/mod/dfscript"],
+    "DiamondFire Essentials": ["Adds QoL features to help the overall DiamondFire experience", ["Outdated/Abandoned", "Mod", "Fabric", "Build Helper", "Discord Presence", "Keybinds", "Dev Helper", "Quality of Life/QoL", "Chat Settings"], "https://www.curseforge.com/minecraft/mc-mods/diamondfire-essentials"],
+    "Firebinds": ["Adds keybinds to run certain DiamondFire commands", ["Mod", "Fabric", "Keybinds", "Outdated/Abandoned", "Open Source"], "https://modrinth.com/mod/df-firebinds"],
+    "FireClient": ["Old chat style, helpful commands, and custom plot actions", ["Mod", "Fabric", "Plot Mod", "Python", "Chat Settings", "Open Source"], "https://modrinth.com/mod/fireclient"],
     "Flint": ["Core library for DiamondFire mods", ["Mod", "Fabric", "Library", "Open Source"], "https://modrinth.com/mod/flint"],
-    "ModUtils": ["Adds features to help the Mods/Admins of DiamondFire", ["Mod", "Fabric", "Quality of Life/QoL", "Chat Settings", "Open Source"], "https://modrinth.com/mod/modutils"],
-    "RBTW": ["Adds helpful features for the plot 42575 / \"Riches Beneath the Waves\"", ["Mod", "Fabric", "Plot Mod", "Open Source"], "https://modrinth.com/mod/rbtw"],
-    "NBS Extensions": ["Load Note Block Studio files in DiamondFire", ["Mod", "Fabric", "Dev Helper", "Open Source"], "https://modrinth.com/mod/nbs-extensions"],
+    "FruitfulUtilities": ["Adds helpful features for the plot 22467 / \"Melon King\"", ["Outdated/Abandoned", "Mod", "Fabric", "Plot Mod", "Chat Settings", "Quality of Life/QoL", "Open Source"], "https://github.com/KingsMMA/FruitfulUtilities"],
+    "GemBlaze": ["Hide unwanted tags & messages, run commands automatically, and helpful tools", ["Outdated/Abandoned", "Mod", "Chat Settings", "Open Source", "Dev Helper", "Build Helper", "Quality of Life/QoL", "Fabric"], "https://modrinth.com/mod/gemblaze"],
     "HyperViewer": ["A way to view code as text similar to Python or Java", ["Outdated/Abandoned", "Mod", "Fabric", "Open Source", "Dev Helper", "Keybinds", "Scripting", "Code Templates", "Custom Language"], "https://modrinth.com/mod/firemod"],
-    "": ["", [], ""],
-    "": ["", [], ""],
-    "": ["", [], ""],
-    "": ["", [], ""],
-    "": ["", [], ""],
-    "": ["", [], ""],
-    "": ["", [], ""],
-    "": ["", [], ""]
+    "ModUtils": ["Adds features to help the Mods/Admins of DiamondFire", ["Mod", "Fabric", "Quality of Life/QoL", "Chat Settings", "Open Source"], "https://modrinth.com/mod/modutils"],
+    "MwonMod": ["Adds helpful features for the plot 22467 / \"Melon King\"", ["Mod", "Fabric", "Plot Mod", "Keybinds", "Open Source", "Quality of Life/QoL"], "https://modrinth.com/mod/mwonmod"],
+    "NBS Extensions": ["Load Note Block Studio files in DiamondFire", ["Mod", "Fabric", "Dev Helper", "Open Source"], "https://modrinth.com/mod/nbs-extensions"],
+    "No Plot Ads": ["Hides ads and boosts from in-game chat", ["Mod", "Fabric", "Chat Settings", "Quality of Life/QoL"], "https://modrinth.com/mod/no-plot-ads"],
+    "Pickaxe game": ["Adds helpful features for the plot 50644 / \"Pickaxe Game\"", ["Mod", "Fabric", "Plot Mod", "Keybinds", "Chat Settings", "Open Source"], "https://modrinth.com/mod/pickaxe-mod"],
+    "RBTW": ["Adds helpful features for the plot 42575 / \"Riches Beneath the Waves\"", ["Mod", "Fabric", "Plot Mod", "Open Source"], "https://modrinth.com/mod/rbtw"],
+    "recode": ["A utility mod to make DiamondFire development more enjoyable", ["Outdated/Abandoned", "Mod", "Fabric", "Code Templates", "Automation", "Keybinds", "Chat Settings", "Quality of Life/QoL"], "https://github.com/homchom/recode"],
+    "SupportUtils": ["Various QoL features to help DiamondFire staff members", ["Outdated/Abandoned", "Mod", "Fabric", "Automation", "Quality of Life/QoL", "Keybinds", "Dev Helper"], "https://modrinth.com/mod/supportutils"],
+    "Temporium Reforged": ["Adds helpful features for the plot 202003 / \"BCмраст Temporium\"", ["Outdated/Abandoned", "Mod", "Fabric", "Quality of Life/QoL", "Plot Mod"], "https://modrinth.com/mod/temporium-reforged"],
+    "WeCode": ["Adds several helpful utilities for development in DiamondFire", ["Mod", "Fabric", "Dev Helper", "Keybinds", "Quality of Life/QoL", "Chat Settings", "Open Source", "Text Styling"], "https://modrinth.com/mod/wecode"]
 }
 
 const randomSearchPrompt = [
@@ -93,7 +97,7 @@ dropdown.addEventListener("click", (event) => {
     if (tagsBar.style.height == "12.3rem") {
         tagsBar.style.height = "1.9rem";
     } else {
-        tagsBar.style.height = "12.3rem"
+        tagsBar.style.height = "13.4rem"
     }
 })
 

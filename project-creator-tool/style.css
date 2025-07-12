@@ -11,8 +11,13 @@
     width: 80%;
 }
 
+#descInput {
+    width: 40%
+}
+
 input {
     color: black;
+    width: 20%;
 }
 
 .tagButton.enabled {
